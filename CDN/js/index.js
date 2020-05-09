@@ -25,7 +25,7 @@ var zoom = function(opt){
 	signature: ''
     };
     meetConfig.apiKey = opt.apiKey || meetConfig.apiKey;
-    meetConfig.meetingNumber = opt.meetingNumber || meetConfig.meetingNumber;
+    meetConfig.meetingNumber = parseInt(opt.meetingNumber || meetConfig.meetingNumber);
     meetConfig.leaveUrl = opt.leaveUrl || meetConfig.leaveUrl;
     meetConfig.userName = opt.userName || meetConfig.userName;
     meetConfig.userEmail = opt.userEmail || meetConfig.userEmail;
