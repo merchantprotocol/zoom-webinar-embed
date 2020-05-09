@@ -14,7 +14,7 @@
      * The below generateSignature should be done server side as not to expose your api secret in public
      * You can find an eaxmple in here: https://marketplace.zoom.us/docs/sdk/native-sdks/web/essential/signature
      */
-    var API_KEY = '6Z6M4H6ORECCYY6-us6Xzw';
+    var API_KEY = 'pdD99TW1RnKhDaWRWmEUjA';
     var MEETING = '886-2862-8580';
 
 	var API_SIGNATURE = false;
