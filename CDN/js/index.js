@@ -1,7 +1,6 @@
 (function(){
-
-	console.log('checkSystemRequirements');
-	console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
+    console.log('checkSystemRequirements');
+    console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
 
     // it's option if you want to change the WebSDK dependency link resources. setZoomJSLib must be run at first
     // if (!china) ZoomMtg.setZoomJSLib('https://source.zoom.us/1.7.7/lib', '/av'); // CDN version default
@@ -10,17 +9,15 @@
     ZoomMtg.preLoadWasm();
     ZoomMtg.prepareJssdk();
     
-    var API_KEY = '6Z6M4H6ORECCYY6-us6Xzw';
-    var MEETING = '2252817652';
-
     /**
      * NEVER PUT YOUR ACTUAL API SECRET IN CLIENT SIDE CODE, THIS IS JUST FOR QUICK PROTOTYPING
      * The below generateSignature should be done server side as not to expose your api secret in public
      * You can find an eaxmple in here: https://marketplace.zoom.us/docs/sdk/native-sdks/web/essential/signature
      */
-    //var API_SECRET = 'API_SECRET';
+    var API_KEY = '6Z6M4H6ORECCYY6-us6Xzw';
+    var MEETING = '2252817652';
 
-	var signature = false;
+	var API_SIGNATURE = false;
 	jQuery.ajax({
   		type: "POST",
 		async: false,
@@ -31,78 +28,10 @@
 		  "role": 0
 		},
 		success: function(jsonData){
-			signature = jsonData.signature;
+			API_SIGNATURE = jsonData.signature;
 		}
 	});
 	
-	console.log(signature);
-	
-	/*
-    testTool = window.testTool;
-    document.getElementById('display_name').value = "CDN" + ZoomMtg.getJSSDKVersion()[0] + testTool.detectOS() + "#" + testTool.getBrowserInfo();
-    document.getElementById('meeting_number').value = testTool.getCookie("meeting_number");
-    document.getElementById('meeting_pwd').value = testTool.getCookie("meeting_pwd");
-    if (testTool.getCookie("meeting_lang")) document.getElementById('meeting_lang').value = testTool.getCookie("meeting_lang");
-   
-    document.getElementById('meeting_lang').addEventListener('change', function(e){
-        testTool.setCookie("meeting_lang", document.getElementById('meeting_lang').value);
-        $.i18n.reload(document.getElementById('meeting_lang').value);
-    });*/
-    /*
-    document.getElementById('clear_all').addEventListener('click', function(e) {
-        testTool.deleteAllCookies();
-        document.getElementById('display_name').value = '';
-        document.getElementById('meeting_number').value = '';
-        document.getElementById('meeting_pwd').value = '';
-        document.getElementById('meeting_lang').value = 'en-US';
-        document.getElementById('meeting_role').value = 0;
-    });
-*/
-    //document.getElementById('join_meeting').addEventListener('click', function(e){
-
-        //e.preventDefault();
-
-        //if(!this.form.checkValidity()){
-        //    alert("Enter Name and Meeting Number");
-        //    return false;
-        //}
-
-        var meetConfig = {
-            apiKey: API_KEY,
-            meetingNumber: MEETING,
-            userName: 'jack',
-            passWord: document.getElementById('meeting_pwd').value,
-            leaveUrl: "https://zoom.us",
-            role: parseInt(document.getElementById('meeting_role').value, 10)
-        };
-       //testTool.setCookie("meeting_number", meetConfig.meetingNumber);
-        //testTool.setCookie("meeting_pwd", meetConfig.passWord);
-        
-	var signature = $.ajax({
-  		type: "POST",
-  		url: 'https://generate-zoom-token.herokuapp.com/',
-  		data: {
-		  "meetingNumber": 2252817652,
-		  "role": 0
-		},
-		/*
-  		success: function(){
-			return 
-		},*/
-  		dataType: 'json'
-	});
-	    console.log(signature);
-/*
-        var signature = ZoomMtg.generateSignature({
-            meetingNumber: meetConfig.meetingNumber,
-            apiKey: meetConfig.apiKey,
-            apiSecret: meetConfig.apiSecret,
-            role: meetConfig.role,
-            success: function(res){
-                console.log(res.result);
-            }
-        });
-*/
         ZoomMtg.init({
             leaveUrl: 'https://www.dailymarketingmix.com/webinarh89v5ua', //https://www.dailymarketingmix.com/application29m6vsdv
             success: function () {
@@ -110,11 +39,10 @@
                     {
                         meetingNumber: MEETING,
                         userName: 'jack',
-                        signature: signature,
-                        apiKey: meetConfig.apiKey,
-                        passWord: meetConfig.passWord,
+                        signature: API_SIGNATURE,
+                        apiKey: API_KEY,
+                        passWord: '948112',
                         success: function(res){
-                            //$('#nav-tool').hide();
                             console.log('join meeting success');
                         },
                         error: function(res) {
@@ -127,7 +55,5 @@
                 console.log(res);
             }
         });
-
-    //});
 
 })();
