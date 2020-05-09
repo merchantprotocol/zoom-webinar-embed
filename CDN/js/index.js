@@ -51,6 +51,7 @@ var zoom = function(opt){
             success: function () {
                 ZoomMtg.join(
                     {
+			    console.log(meetConfig);
                         meetingNumber: meetConfig.meetingNumber,
                         userName: meetConfig.userName,
                         signature: meetConfig.signature,
