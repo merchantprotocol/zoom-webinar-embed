@@ -49,9 +49,9 @@ var zoom = function(opt){
         ZoomMtg.init({
             leaveUrl: meetConfig.leaveUrl,
             success: function () {
+			    console.log(meetConfig);
                 ZoomMtg.join(
                     {
-			    console.log(meetConfig);
                         meetingNumber: meetConfig.meetingNumber,
                         userName: meetConfig.userName,
                         signature: meetConfig.signature,
