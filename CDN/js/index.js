@@ -18,7 +18,7 @@
      * The below generateSignature should be done server side as not to expose your api secret in public
      * You can find an eaxmple in here: https://marketplace.zoom.us/docs/sdk/native-sdks/web/essential/signature
      */
-    //var API_SECRET = 'YOUR_API_SECRET';
+    //var API_SECRET = 'API_SECRET';
 
 	var signature = false;
 	jQuery.ajax({
@@ -69,7 +69,6 @@
 
         var meetConfig = {
             apiKey: API_KEY,
-            apiSecret: API_SECRET,
             meetingNumber: MEETING,
             userName: 'jack',
             passWord: document.getElementById('meeting_pwd').value,
