@@ -10,14 +10,14 @@
     ZoomMtg.preLoadWasm();
     ZoomMtg.prepareJssdk();
     
-    var API_KEY = 'YOUR_API_KEY';
+    var API_KEY = '6Z6M4H6ORECCYY6-us6Xzw';
 
     /**
      * NEVER PUT YOUR ACTUAL API SECRET IN CLIENT SIDE CODE, THIS IS JUST FOR QUICK PROTOTYPING
      * The below generateSignature should be done server side as not to expose your api secret in public
      * You can find an eaxmple in here: https://marketplace.zoom.us/docs/sdk/native-sdks/web/essential/signature
      */
-    var API_SECRET = 'YOUR_API_SECRET';
+    //var API_SECRET = 'YOUR_API_SECRET';
 
     testTool = window.testTool;
     document.getElementById('display_name').value = "CDN" + ZoomMtg.getJSSDKVersion()[0] + testTool.detectOS() + "#" + testTool.getBrowserInfo();
@@ -51,7 +51,7 @@
         var meetConfig = {
             apiKey: API_KEY,
             apiSecret: API_SECRET,
-            meetingNumber: parseInt(document.getElementById('meeting_number').value),
+            meetingNumber: parseInt(2252817652),
             userName: document.getElementById('display_name').value,
             passWord: document.getElementById('meeting_pwd').value,
             leaveUrl: "https://zoom.us",
@@ -60,7 +60,21 @@
         testTool.setCookie("meeting_number", meetConfig.meetingNumber);
         testTool.setCookie("meeting_pwd", meetConfig.passWord);
         
-
+	var signature = $.ajax({
+  		type: "POST",
+  		url: 'https://generate-zoom-token.herokuapp.com/',
+  		data: {
+		  "meetingNumber": 2252817652,
+		  "role": 0
+		},
+		/*
+  		success: function(){
+			return 
+		},*/
+  		dataType: 'json'
+	});
+	    console.log(signature);
+/*
         var signature = ZoomMtg.generateSignature({
             meetingNumber: meetConfig.meetingNumber,
             apiKey: meetConfig.apiKey,
@@ -70,7 +84,7 @@
                 console.log(res.result);
             }
         });
-
+*/
         ZoomMtg.init({
             leaveUrl: 'http://www.zoom.us',
             success: function () {
