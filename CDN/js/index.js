@@ -15,7 +15,7 @@
      * You can find an eaxmple in here: https://marketplace.zoom.us/docs/sdk/native-sdks/web/essential/signature
      */
     const meetConfig = {
-	apiKey: 'pdD99TW1RnKhDaWRWmEUjA'
+	apiKey: 'pdD99TW1RnKhDaWRWmEUjA',
 	meetingNumber: '88628628580',
 	leaveUrl: 'https://www.dailymarketingmix.com/webinarh89v5ua',
 	userName: 'Firstname Lastname',
