@@ -14,8 +14,16 @@
      * The below generateSignature should be done server side as not to expose your api secret in public
      * You can find an eaxmple in here: https://marketplace.zoom.us/docs/sdk/native-sdks/web/essential/signature
      */
-    var API_KEY = 'pdD99TW1RnKhDaWRWmEUjA';
-    var MEETING = '886-2862-8580';
+    const meetConfig = {
+	apiKey: 'pdD99TW1RnKhDaWRWmEUjA'
+	meetingNumber: '88628628580',
+	leaveUrl: 'https://www.dailymarketingmix.com/webinarh89v5ua',
+	userName: 'Firstname Lastname',
+	userEmail: 'firstname.lastname@yoursite.com', // required for webinar
+	passWord: '948112', // if required
+	role: 0, // 1 for host; 0 for attendee or webinar
+	signature: ''
+    };
 
 	var API_SIGNATURE = false;
 	jQuery.ajax({
@@ -24,24 +32,24 @@
   		dataType: 'json',
   		url: 'https://generate-zoom-token.herokuapp.com/',
   		data: {
-		  "meetingNumber": MEETING,
-		  "role": 0
+		  "meetingNumber": meetConfig.meetingNumber,
+		  "role": meetConfig.role
 		},
 		success: function(jsonData){
-			API_SIGNATURE = jsonData.signature;
+			meetConfig.signature = jsonData.signature;
 		}
 	});
-	
+	console.log(meetConfig);
         ZoomMtg.init({
             leaveUrl: 'https://www.dailymarketingmix.com/webinarh89v5ua', //https://www.dailymarketingmix.com/application29m6vsdv
             success: function () {
                 ZoomMtg.join(
                     {
-                        meetingNumber: MEETING,
-                        userName: 'jack',
-                        signature: API_SIGNATURE,
-                        apiKey: API_KEY,
-                        passWord: '948112',
+                        meetingNumber: meetConfig.meetingNumber,
+                        userName: meetConfig.userName,
+                        signature: meetConfig.signature,
+                        apiKey: meetConfig.apiKey,
+                        passWord: meetConfig.passWord,
                         success: function(res){
                             console.log('join meeting success');
                         },
