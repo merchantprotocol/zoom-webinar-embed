@@ -28,7 +28,7 @@
 		  "role": 0
 		},
 		success: function(z,b,c){
-			console.log(a,b,c);
+			console.log(z,b,c);
 		},
   		dataType: 'json'
 	});
