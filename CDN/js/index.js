@@ -21,7 +21,7 @@ var zoom = function(opt){
 	userName: 'Firstname Lastname',
 	userEmail: 'firstname.lastname@yoursite.com', // required for webinar
 	passWord: '', // if required
-	role: 0, // 1 for host; 0 for attendee or webinar
+	role: parseInt(0,10), // 1 for host; 0 for attendee or webinar
 	signature: ''
     };
     meetConfig.apiKey = opt.apiKey || meetConfig.apiKey;
