@@ -16,7 +16,7 @@
      */
     const meetConfig = {
 	apiKey: 'pdD99TW1RnKhDaWRWmEUjA',
-	meetingNumber: '88628628580',
+	meetingNumber: '2252817652',
 	leaveUrl: 'https://www.dailymarketingmix.com/webinarh89v5ua',
 	userName: 'Firstname Lastname',
 	userEmail: 'firstname.lastname@yoursite.com', // required for webinar
