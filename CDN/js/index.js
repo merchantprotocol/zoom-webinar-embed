@@ -35,8 +35,7 @@
 		}
 	});
 	
-	
-	return;
+	console.log(signature);
 	
 	/*
     testTool = window.testTool;
