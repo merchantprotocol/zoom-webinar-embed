@@ -27,6 +27,9 @@
 		  "meetingNumber": 2252817652,
 		  "role": 0
 		},
+		success: function(z,b,c){
+			console.log(a,b,c);
+		},
   		dataType: 'json'
 	});
 	
