@@ -1,4 +1,4 @@
-(function(){
+var zoom = function(opt){
     console.log('checkSystemRequirements');
     console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
 
@@ -16,7 +16,7 @@
      */
     const meetConfig = {
 	apiKey: 'pdD99TW1RnKhDaWRWmEUjA',
-	meetingNumber: '88628628580',
+	meetingNumber: '886-2862-8580',
 	leaveUrl: 'https://www.dailymarketingmix.com/webinarh89v5ua',
 	userName: 'Firstname Lastname',
 	userEmail: 'firstname.lastname@yoursite.com', // required for webinar
@@ -24,6 +24,7 @@
 	role: 0, // 1 for host; 0 for attendee or webinar
 	signature: ''
     };
+    meetConfig.meetingNumber = opt.meetingNumber || meetConfig.meetingNumber;
 
 	var API_SIGNATURE = false;
 	jQuery.ajax({
@@ -64,4 +65,4 @@
             }
         });
 
-})();
+};
