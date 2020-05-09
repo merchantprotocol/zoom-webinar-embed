@@ -33,7 +33,7 @@ var zoom = function(opt){
   		dataType: 'json',
   		url: 'https://generate-zoom-token.herokuapp.com/',
   		data: {
-		  "meetingNumber": meetConfig.meetingNumber,
+		  "meetingNumber": '88628628580', //meetConfig.meetingNumber,
 		  "role": meetConfig.role
 		},
 		success: function(jsonData){
@@ -47,7 +47,7 @@ var zoom = function(opt){
                 console.log(meetConfig);
                 ZoomMtg.join(
                     {
-                        meetingNumber: meetConfig.meetingNumber,
+                        meetingNumber: '886-2862-8580', //meetConfig.meetingNumber,
                         userName: meetConfig.userName,
                         signature: meetConfig.signature,
                         apiKey: meetConfig.apiKey,
