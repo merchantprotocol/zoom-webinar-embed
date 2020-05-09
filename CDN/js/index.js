@@ -16,11 +16,11 @@
      */
     const meetConfig = {
 	apiKey: 'pdD99TW1RnKhDaWRWmEUjA',
-	meetingNumber: '2252817652',
+	meetingNumber: '88628628580',
 	leaveUrl: 'https://www.dailymarketingmix.com/webinarh89v5ua',
 	userName: 'Firstname Lastname',
 	userEmail: 'firstname.lastname@yoursite.com', // required for webinar
-	passWord: 'TDB3VDd1T3JqelFZcldheTNlQmt5Zz09', // if required
+	passWord: '948112', // if required
 	role: 0, // 1 for host; 0 for attendee or webinar
 	signature: ''
     };
