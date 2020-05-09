@@ -15,7 +15,7 @@
      * You can find an eaxmple in here: https://marketplace.zoom.us/docs/sdk/native-sdks/web/essential/signature
      */
     var API_KEY = '6Z6M4H6ORECCYY6-us6Xzw';
-    var MEETING = '88628628580';
+    var MEETING = '886-2862-8580';
 
 	var API_SIGNATURE = false;
 	jQuery.ajax({
