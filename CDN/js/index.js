@@ -20,7 +20,7 @@
 	leaveUrl: 'https://www.dailymarketingmix.com/webinarh89v5ua',
 	userName: 'Firstname Lastname',
 	userEmail: 'firstname.lastname@yoursite.com', // required for webinar
-	passWord: '948112', // if required
+	passWord: 'TDB3VDd1T3JqelFZcldheTNlQmt5Zz09', // if required
 	role: 0, // 1 for host; 0 for attendee or webinar
 	signature: ''
     };
