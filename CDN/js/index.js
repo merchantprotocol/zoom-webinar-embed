@@ -19,6 +19,21 @@
      */
     //var API_SECRET = 'YOUR_API_SECRET';
 
+	
+	var signature = jQuery.ajax({
+  		type: "POST",
+  		url: 'https://generate-zoom-token.herokuapp.com/',
+  		data: {
+		  "meetingNumber": 2252817652,
+		  "role": 0
+		},
+  		dataType: 'json'
+	});
+	
+	
+	return;
+	
+	
     testTool = window.testTool;
     document.getElementById('display_name').value = "CDN" + ZoomMtg.getJSSDKVersion()[0] + testTool.detectOS() + "#" + testTool.getBrowserInfo();
     document.getElementById('meeting_number').value = testTool.getCookie("meeting_number");
