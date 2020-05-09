@@ -9,18 +9,13 @@ var zoom = function(opt){
     ZoomMtg.preLoadWasm();
     ZoomMtg.prepareJssdk();
     
-    /**
-     * NEVER PUT YOUR ACTUAL API SECRET IN CLIENT SIDE CODE, THIS IS JUST FOR QUICK PROTOTYPING
-     * The below generateSignature should be done server side as not to expose your api secret in public
-     * You can find an eaxmple in here: https://marketplace.zoom.us/docs/sdk/native-sdks/web/essential/signature
-     */
     const meetConfig = {
 	apiKey: 'pdD99TW1RnKhDaWRWmEUjA',
 	meetingNumber: '',
 	leaveUrl: 'https://www.dailymarketingmix.com/webinarh89v5ua',
-	userName: 'Firstname Lastname',
-	userEmail: 'firstname.lastname@yoursite.com', // required for webinar
-	passWord: '', // if required
+	userName: 'Anonymous Guest',
+	userEmail: 'guest@mailinator.com', // required for webinar
+	passWord: null, // if required
 	role: parseInt(0,10), // 1 for host; 0 for attendee or webinar
 	signature: ''
     };
@@ -49,7 +44,7 @@ var zoom = function(opt){
         ZoomMtg.init({
             leaveUrl: meetConfig.leaveUrl,
             success: function () {
-			    console.log(meetConfig);
+                console.log(meetConfig);
                 ZoomMtg.join(
                     {
                         meetingNumber: meetConfig.meetingNumber,
