@@ -15,7 +15,7 @@ var zoom = function(opt){
 	leaveUrl: 'https://www.dailymarketingmix.com/webinarh89v5ua',
 	userName: 'Anonymous Guest',
 	userEmail: 'guest@mailinator.com', // required for webinar
-	passWord: null, // if required
+	passWord: '', // if required
 	role: parseInt(0,10), // 1 for host; 0 for attendee or webinar
 	signature: ''
     };
