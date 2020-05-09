@@ -11,6 +11,7 @@
     ZoomMtg.prepareJssdk();
     
     var API_KEY = '6Z6M4H6ORECCYY6-us6Xzw';
+    var MEETING = '2252817652';
 
     /**
      * NEVER PUT YOUR ACTUAL API SECRET IN CLIENT SIDE CODE, THIS IS JUST FOR QUICK PROTOTYPING
@@ -19,24 +20,25 @@
      */
     //var API_SECRET = 'YOUR_API_SECRET';
 
-	
-	var signature = jQuery.ajax({
+	var signature = false;
+	jQuery.ajax({
   		type: "POST",
+		async: false,
+  		dataType: 'json',
   		url: 'https://generate-zoom-token.herokuapp.com/',
   		data: {
-		  "meetingNumber": 2252817652,
+		  "meetingNumber": MEETING,
 		  "role": 0
 		},
-		success: function(z,b,c){
-			console.log(z,b,c);
-		},
-  		dataType: 'json'
+		success: function(jsonData){
+			signature = jsonData.signature;
+		}
 	});
 	
 	
 	return;
 	
-	
+	/*
     testTool = window.testTool;
     document.getElementById('display_name').value = "CDN" + ZoomMtg.getJSSDKVersion()[0] + testTool.detectOS() + "#" + testTool.getBrowserInfo();
     document.getElementById('meeting_number').value = testTool.getCookie("meeting_number");
@@ -46,8 +48,8 @@
     document.getElementById('meeting_lang').addEventListener('change', function(e){
         testTool.setCookie("meeting_lang", document.getElementById('meeting_lang').value);
         $.i18n.reload(document.getElementById('meeting_lang').value);
-    });
-    
+    });*/
+    /*
     document.getElementById('clear_all').addEventListener('click', function(e) {
         testTool.deleteAllCookies();
         document.getElementById('display_name').value = '';
@@ -56,27 +58,27 @@
         document.getElementById('meeting_lang').value = 'en-US';
         document.getElementById('meeting_role').value = 0;
     });
+*/
+    //document.getElementById('join_meeting').addEventListener('click', function(e){
 
-    document.getElementById('join_meeting').addEventListener('click', function(e){
+        //e.preventDefault();
 
-        e.preventDefault();
-
-        if(!this.form.checkValidity()){
-            alert("Enter Name and Meeting Number");
-            return false;
-        }
+        //if(!this.form.checkValidity()){
+        //    alert("Enter Name and Meeting Number");
+        //    return false;
+        //}
 
         var meetConfig = {
             apiKey: API_KEY,
             apiSecret: API_SECRET,
-            meetingNumber: parseInt(2252817652),
-            userName: document.getElementById('display_name').value,
+            meetingNumber: MEETING,
+            userName: 'jack',
             passWord: document.getElementById('meeting_pwd').value,
             leaveUrl: "https://zoom.us",
             role: parseInt(document.getElementById('meeting_role').value, 10)
         };
-        testTool.setCookie("meeting_number", meetConfig.meetingNumber);
-        testTool.setCookie("meeting_pwd", meetConfig.passWord);
+       //testTool.setCookie("meeting_number", meetConfig.meetingNumber);
+        //testTool.setCookie("meeting_pwd", meetConfig.passWord);
         
 	var signature = $.ajax({
   		type: "POST",
@@ -104,17 +106,17 @@
         });
 */
         ZoomMtg.init({
-            leaveUrl: 'http://www.zoom.us',
+            leaveUrl: 'https://www.dailymarketingmix.com/webinarh89v5ua', //https://www.dailymarketingmix.com/application29m6vsdv
             success: function () {
                 ZoomMtg.join(
                     {
-                        meetingNumber: meetConfig.meetingNumber,
-                        userName: meetConfig.userName,
+                        meetingNumber: MEETING,
+                        userName: 'jack',
                         signature: signature,
                         apiKey: meetConfig.apiKey,
                         passWord: meetConfig.passWord,
                         success: function(res){
-                            $('#nav-tool').hide();
+                            //$('#nav-tool').hide();
                             console.log('join meeting success');
                         },
                         error: function(res) {
@@ -128,6 +130,6 @@
             }
         });
 
-    });
+    //});
 
 })();
