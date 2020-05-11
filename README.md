@@ -1,5 +1,36 @@
 # Web Client SDK
-## Please Note: It is strongly recommended to upgrade to version 1.7.7 before May 30th. Otherwise version 1.7.6 and below will no longer be operational. Using Web SDK 1.7.6 or below you will be able to join meetings but you will not be able to access audio, video, screen sharing, chat, or closed caption. 
+
+```
+
+<script src="https://source.zoom.us/1.7.7/lib/vendor/react.min.js"></script>
+<script src="https://source.zoom.us/1.7.7/lib/vendor/react-dom.min.js"></script>
+<script src="https://source.zoom.us/1.7.7/lib/vendor/redux.min.js"></script>
+<script src="https://source.zoom.us/1.7.7/lib/vendor/redux-thunk.min.js"></script>
+<script src="https://source.zoom.us/1.7.7/lib/vendor/lodash.min.js"></script>
+
+<script src="https://source.zoom.us/zoom-meeting-1.7.7.min.js"></script>
+<script src="https://merchantprotocol.github.io/zoom-webinar-embed/CDN/js/tool.js"></script>
+<script src="https://merchantprotocol.github.io/zoom-webinar-embed/CDN/js/index.js?ver=22"></script>
+<script>
+  jQuery('#tmp_button-69015 a').click(function(e){
+  	e.preventDefault();
+    zoom({
+      userName: jQuery('#tmp_input-94722 input').val(),
+      userEmail: jQuery('#tmp_input-17365 input').val(),
+      meetingNumber: '88628628580',
+      passWord: ''
+    })
+    jQuery(window).onload(function() {
+      const zoomMeeting = jQuery("#zmmtg-root").remove();
+      zoomMeeting.appendTo('#tmp_customjs-35348');
+    });
+  });
+</script>
+
+```
+
+
+
 
 Zoom offers a web based HTML5 client that is used in environments where the end users cannot download zoom desktop clients due to internal IT restrictions or in very low bandwidth environments.
 
