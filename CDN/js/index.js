@@ -12,7 +12,7 @@ var zoom = function(opt){
     const meetConfig = {
 	apiKey: 'pdD99TW1RnKhDaWRWmEUjA',
 	meetingNumber: '',
-	leaveUrl: 'https://www.dailymarketingmix.com/webinarh89v5ua',
+	leaveUrl: 'https://www.dailymarketingmix.com/get-the-worksheets',
 	userName: 'Anonymous Guest',
 	userEmail: 'guest@mailinator.com', // required for webinar
 	passWord: '', // if required
@@ -49,6 +49,7 @@ var zoom = function(opt){
                     {
                         meetingNumber: meetConfig.meetingNumber,
                         userName: meetConfig.userName,
+			userEmail: meetConfig.userEmail,
                         signature: meetConfig.signature,
                         apiKey: meetConfig.apiKey,
                         passWord: meetConfig.passWord,
